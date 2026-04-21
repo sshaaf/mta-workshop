@@ -1,2 +1,2 @@
 * xref:module-mta-analyze-instructions.adoc[Assessment and Analysis]
-// * xref:module-mta-refactor-instructions.adoc[Refactor]
+* xref:module-mta-developer-lightspeed.adoc[Developer Lightspeed for MTA]
