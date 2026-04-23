@@ -1,0 +1,4 @@
+= Exercise 3: Modernize Message-Driven Bean (MDB) to Reactive Messaging
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-3.adoc[]

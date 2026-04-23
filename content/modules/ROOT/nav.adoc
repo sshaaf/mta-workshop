@@ -1,2 +1,9 @@
 * xref:module-mta-analyze-instructions.adoc[Assessment and Analysis]
-* xref:module-mta-developer-lightspeed.adoc[Developer Lightspeed for MTA]
+* Developer Lightspeed for MTA
+** xref:module-mta-developer-lightspeed.adoc[Overview: goals and introduction]
+** xref:module-mta-developer-lightspeed-exercise-1.adoc[Exercise 1: Access DevSpaces and configure the MTA extension]
+** xref:module-mta-developer-lightspeed-exercise-2.adoc[Exercise 2: Run an initial static code analysis]
+** xref:module-mta-developer-lightspeed-exercise-3.adoc[Exercise 3: MDB to Reactive Messaging]
+** xref:module-mta-developer-lightspeed-exercise-4.adoc[Exercise 4: EJBs to REST endpoints]
+** xref:module-mta-developer-lightspeed-exercise-5.adoc[Exercise 5: Custom audit library and Solution Server]
+** xref:module-mta-developer-lightspeed-summary.adoc[Summary for students]

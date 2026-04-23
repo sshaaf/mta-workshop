@@ -1,0 +1,4 @@
+= Exercise 4: Transforming Legacy EJBs to REST Endpoints
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-4.adoc[]

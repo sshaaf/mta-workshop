@@ -1,0 +1,4 @@
+= Summary for students
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-summary.adoc[]

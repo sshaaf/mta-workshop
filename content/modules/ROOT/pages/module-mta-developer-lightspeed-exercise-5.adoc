@@ -1,0 +1,4 @@
+= Exercise 5: Migrating a custom audit library with Konveyor AI and the Solution Server
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-5.adoc[]

@@ -1,0 +1,4 @@
+= Exercise 2: Run an initial static code analysis
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-2.adoc[]

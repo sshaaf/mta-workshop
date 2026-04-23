@@ -1,0 +1,4 @@
+= Exercise 1: Access DevSpaces and configure the MTA extension (Developer Lightspeed for MTA)
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-1.adoc[]
