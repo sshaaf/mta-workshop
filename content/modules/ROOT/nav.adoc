@@ -6,4 +6,5 @@
 ** xref:module-mta-developer-lightspeed-exercise-3.adoc[Exercise 3: MDB to Reactive Messaging]
 ** xref:module-mta-developer-lightspeed-exercise-4.adoc[Exercise 4: EJBs to REST endpoints]
 ** xref:module-mta-developer-lightspeed-exercise-5.adoc[Exercise 5: Custom audit library and Solution Server]
+** xref:module-mta-developer-lightspeed-exercise-6.adoc[Exercise 6: EHR app and Solution Server hints]
 ** xref:module-mta-developer-lightspeed-summary.adoc[Summary for students]

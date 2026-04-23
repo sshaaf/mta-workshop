@@ -1,0 +1,4 @@
+= Exercise 6: Migrating the EHR application with Solution Server hints
+:imagesdir: ../assets/images/
+
+include::partial$module-mta-developer-lightspeed-exercise-6.adoc[]
