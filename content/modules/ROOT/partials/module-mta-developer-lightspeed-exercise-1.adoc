@@ -5,6 +5,7 @@ In this lab, we will use the **Migration Toolkit for Applications** Visual Studi
 **Developer Lightspeed** is not a separate extension. It is MTA's AI-powered code refactoring feature. The **MTA extension** is what is installed in the IDE; it includes both MTA static code analysis and Developer Lightspeed (generative AI).
 ====
 
+[.goal]
 .Goal
 [NOTE]
 ====

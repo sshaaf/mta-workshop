@@ -3,6 +3,7 @@
 This walkthrough is adapted from https://github.com/konveyor/kai/blob/main/docs/scenarios/migrating_custom_library_apps_using_solution_server/Migrating_EHR_application.md[*Part 2: Migrating EHR application with Solution Server hints*] (Konveyor Kai). Where it refers to **Kai** and the **Kai** extension, use the **MTA extension** in Red Hat **Dev Spaces** with **Developer Lightspeed** and the **Solution Server** the same way as in the prior inventory (Part 1) walkthrough in this lab.
 ====
 
+[.goal]
 .Goal
 [NOTE]
 ====

@@ -1,10 +1,6 @@
 == 1. Goals of this lab
 
-.Goal
-[NOTE]
-====
 Experience end-to-end application modernization with **Red Hat Developer Lightspeed for MTA** in **Red Hat OpenShift Dev Spaces**: use the **MTA extension** for static analysis and **Developer Lightspeed** (generative AI) to move legacy **Java EE** coolstore code toward **Quarkus** and **Jakarta EE**, and understand how analysis, AI-assisted fixes, and the **Solution Server** fit together on the path to OpenShift.
-====
 
 As enterprise organizations accelerate their cloud adoption journey, one of the most significant challenges they face is modernizing legacy Java applications to run on modern platforms like Red Hat OpenShift. The traditional approach to code refactoring is time-consuming, error-prone, and requires deep knowledge of both legacy and target technologies.
 
