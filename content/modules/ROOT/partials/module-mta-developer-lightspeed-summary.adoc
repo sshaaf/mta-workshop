@@ -1,1 +1,0 @@
-Modernization isn't just about making code "newer"—it's about making it **lighter, faster, and more connected.** **Developer Lightspeed** shifts modernization from manual "copy-paste" refactoring to high-level architectural oversight.
