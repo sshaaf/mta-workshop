@@ -1,11 +1,8 @@
+.Goal
 [NOTE]
 ====
-This walkthrough is adapted from the https://github.com/konveyor/kai/blob/main/docs/scenarios/migrating_custom_library_apps_using_solution_server/Migrating_inventory_management.md[Konveyor Kai scenario, *Migrating inventory management*] (inventory management). Where that documentation refers to the Kai extension and analysis workflow, use the **MTA extension** in Dev Spaces with **Developer Lightspeed** and the **Solution Server** in an analogous way.
-====
-
-=== Goal
-
 Migrate an outdated audit logging library (v1) to a modern streaming-based audit library (v2). We use custom rules with Konveyor AI to analyze both applications and to generate refactoring recommendations. We also use the **Solution Server** to show how migration patterns learned from the first application can be applied to a second application.
+====
 
 === Applications to modernize
 
@@ -285,7 +282,7 @@ Configure Kai analysis with the custom audit library migration rules. Create a n
 
 Click *Edit in Profile Manager* to start configuring a custom analysis profile for the audit library migration. This allows you to specify the exact rules and targets for the migration.
 
-image::mta-dls/0_setup_profile_1.jpg[Setup profile step 1,link=self,window=blank,title="Setup profile step 1"]
+image::mta-dls/exercise-5/0_setup_profile_1.jpg[Setup profile step 1,link=self,window=blank,title="Setup profile step 1"]
 
 *Step 2: Configure profile settings*
 
@@ -295,13 +292,13 @@ Set the profile name to `openjdk_custom_library` and configure the source and ta
 
 Navigate to the `rules` directory in your app path (inventory management) and select the `rules` folder. These rules are designed to detect v1 patterns and suggest v2 equivalents of the audit library.
 
-image::mta-dls/0_setup_profile_3.jpg[Setup profile step 3,link=self,window=blank,title="Setup profile step 3"]
+image::mta-dls/exercise-5/0_setup_profile_3.jpg[Setup profile step 3,link=self,window=blank,title="Setup profile step 3"]
 
 *Step 4: Finalize configuration*
 
 Review the final configuration showing the selected rules, source and target environments, and analysis scope. This profile is auto-saved and is marked active by default.
 
-image::mta-dls/0_setup_profile_2.jpg[Setup profile step 2,link=self,window=blank,title="Setup profile step 2"]
+image::mta-dls/exercise-5/0_setup_profile_2.jpg[Setup profile step 2,link=self,window=blank,title="Setup profile step 2"]
 
 ==== 3.2 Start analysis
 
@@ -309,29 +306,29 @@ Run the analysis to detect migration issues. The analysis takes the configured p
 
 Select the profile you created from the drop-down. This ensures Konveyor AI uses your custom rules to analyze the codebase for v1 to v2 migration patterns.
 
-image::mta-dls/0_setup_profile_4.jpg[Setup profile step 4,link=self,window=blank,title="Setup profile step 4"]
+image::mta-dls/exercise-5/0_setup_profile_4.jpg[Setup profile step 4,link=self,window=blank,title="Setup profile step 4"]
 
 *Step 1: Select analysis profile*
 
 Start the analyzer with the *Start* button.
 
-image::mta-dls/0_start_analysis.jpg[Start analysis,link=self,window=blank,title="Start analysis"]
+image::mta-dls/exercise-5/0_start_analysis.jpg[Start analysis,link=self,window=blank,title="Start analysis"]
 
 Press kbd:[Ctrl+Shift+P] (Windows or Linux) or kbd:[Cmd+Shift+P] (macOS), then choose *Restart solution server* to restart the solution server.
 
-image::mta-dls/0_solution_server_restart.jpg[Solution server restart,link=self,window=blank,title="Solution server restart"]
+image::mta-dls/exercise-5/0_solution_server_restart.jpg[Solution server restart,link=self,window=blank,title="Solution server restart"]
 
 *Step 2: Execute analysis*
 
 Click *Start Analysis*. The tool analyzes the entire codebase for patterns that match the custom rules for the audit library migration.
 
-image::mta-dls/0_run_analysis.jpg[Run analysis,link=self,window=blank,title="Run analysis"]
+image::mta-dls/exercise-5/0_run_analysis.jpg[Run analysis,link=self,window=blank,title="Run analysis"]
 
 ==== 3.3 Analysis results
 
 Kai reports multiple migration issues in the inventory application, with a full view of changes required for the v1 to v2 migration.
 
-image::mta-dls/0_analysis_results.jpg[Analysis results,link=self,window=blank,title="Analysis results"]
+image::mta-dls/exercise-5/0_analysis_results.jpg[Analysis results,link=self,window=blank,title="Analysis results"]
 
 The results panel shows detected migration issues by category, with counts, file locations, line numbers, and suggested fixes.
 
@@ -351,36 +348,36 @@ Kai flags the outdated audit library dependency and suggests a solution.
 
 *Step 1: Identify dependency issue*
 
-image::mta-dls/1_fix_maven_dep.jpg[Fix Maven dependency,link=self,window=blank,title="Fix Maven dependency"]
+image::mta-dls/exercise-5/1_fix_maven_dep.jpg[Fix Maven dependency,link=self,window=blank,title="Fix Maven dependency"]
 
 The analysis shows that the audit library 1.0.0 should move to 2.0.0, and the Java level from 8 to 21.
 
 Click the *tool* icon to request a fix. Kai provides concrete guidance, including the exact version numbers.
 
-image::mta-dls/1_solution_mvn_dep_1.jpg[Solution Maven dependency 1,link=self,window=blank,title="Solution Maven dependency 1"]
-image::mta-dls/1_solution_mvn_dep_2.jpg[Solution Maven dependency 2,link=self,window=blank,title="Solution Maven dependency 2"]
+image::mta-dls/exercise-5/1_solution_mvn_dep_1.jpg[Solution Maven dependency 1,link=self,window=blank,title="Solution Maven dependency 1"]
+image::mta-dls/exercise-5/1_solution_mvn_dep_2.jpg[Solution Maven dependency 2,link=self,window=blank,title="Solution Maven dependency 2"]
 
 *Step 2: Review and apply changes*
 
-image::mta-dls/1_mvn_dep_solution_view_changes.jpg[Maven dependency solution view changes,link=self,window=blank,title="Maven dependency solution view changes"]
+image::mta-dls/exercise-5/1_mvn_dep_solution_view_changes.jpg[Maven dependency solution view changes,link=self,window=blank,title="Maven dependency solution view changes"]
 
 Review the changes so the dependency is 2.0.0 and the Java level is 21.
 
-image::mta-dls/1_pom_compare_1.jpg[POM compare 1,link=self,window=blank,title="POM compare 1"]
+image::mta-dls/exercise-5/1_pom_compare_1.jpg[POM compare 1,link=self,window=blank,title="POM compare 1"]
 
 The diff highlights dependency and compiler version updates.
 
-image::mta-dls/1_pom_compare_2.jpg[POM compare 2,link=self,window=blank,title="POM compare 2"]
+image::mta-dls/exercise-5/1_pom_compare_2.jpg[POM compare 2,link=self,window=blank,title="POM compare 2"]
 
 *Step 3: Apply the changes*
 
-image::mta-dls/1_pom_apply_changes.jpg[Apply POM changes,link=self,window=blank,title="Apply POM changes"]
+image::mta-dls/exercise-5/1_pom_apply_changes.jpg[Apply POM changes,link=self,window=blank,title="Apply POM changes"]
 
 Click *Apply Changes* to update `pom.xml`. The analysis re-runs and refreshes the results.
 
 ===== Fix 2: Replace FileSystemAuditLogger
 
-image::mta-dls/2_analysis.jpg[Analysis for logger,link=self,window=blank,title="Analysis for logger"]
+image::mta-dls/exercise-5/2_analysis.jpg[Analysis for logger,link=self,window=blank,title="Analysis for logger"]
 
 Kai identifies `FileSystemAuditLogger` and suggests moving to a streaming-based logger. Update the implementation from file-based to TCP streaming.
 
@@ -392,7 +389,7 @@ Click the *tool* button on the incident for the rule *Replace FileSystemAuditLog
 
 The LLM may suggest a basic replacement that does not include full v2 API or configuration.
 
-image::mta-dls/2_suggested_fix.jpg[Suggested fix for logger,link=self,window=blank,title="Suggested fix for logger"]
+image::mta-dls/exercise-5/2_suggested_fix.jpg[Suggested fix for logger,link=self,window=blank,title="Suggested fix for logger"]
 
 [NOTE]
 ====
@@ -410,7 +407,7 @@ Update the config manually, for example:
             auditLogger = new StreamableAuditLogger(config);
 ----
 
-image::mta-dls/2_actual_fix.jpg[Actual fix applied,link=self,window=blank,title="Actual fix applied"]
+image::mta-dls/exercise-5/2_actual_fix.jpg[Actual fix applied,link=self,window=blank,title="Actual fix applied"]
 
 Save the file and *accept* the resolution in the panel.
 
@@ -420,7 +417,7 @@ Move from the deprecated `AuditEvent.builder()` flow to a Java 21 `AuditEvent` r
 
 *Step 1: Identify builder pattern usage*
 
-image::mta-dls/3_analysis.jpg[Analysis for event creation,link=self,window=blank,title="Analysis for event creation"]
+image::mta-dls/exercise-5/3_analysis.jpg[Analysis for event creation,link=self,window=blank,title="Analysis for event creation"]
 
 Click the *tool* on the incident for *Replace deprecated AuditEvent.builder() with direct Java 21 record instantiation*.
 
@@ -428,7 +425,7 @@ Click the *tool* on the incident for *Replace deprecated AuditEvent.builder() wi
 
 *LLM suggestion (incomplete):* The model may call the constructor with incomplete or wrong parameters.
 
-image::mta-dls/3_suggested_fix_1.jpg[Suggested fix 1,link=self,window=blank,title="Suggested fix 1"]
+image::mta-dls/exercise-5/3_suggested_fix_1.jpg[Suggested fix 1,link=self,window=blank,title="Suggested fix 1"]
 
 *Manual changes:*
 
@@ -455,12 +452,12 @@ AuditEvent auditEvent = new AuditEvent(
 );
 ----
 
-image::mta-dls/3_actual_fix_1_1.jpg[Actual fix 1-1,link=self,window=blank,title="Actual fix 1-1"]
-image::mta-dls/3_actual_fix_1_2.jpg[Actual fix 1-2,link=self,window=blank,title="Actual fix 1-2"]
+image::mta-dls/exercise-5/3_actual_fix_1_1.jpg[Actual fix 1-1,link=self,window=blank,title="Actual fix 1-1"]
+image::mta-dls/exercise-5/3_actual_fix_1_2.jpg[Actual fix 1-2,link=self,window=blank,title="Actual fix 1-2"]
 
 Scroll to the next incident and repeat with the following manual change:
 
-image::mta-dls/3_guggested_fix_2.jpg[Suggested fix 2,link=self,window=blank,title="Suggested fix 2"]
+image::mta-dls/exercise-5/3_guggested_fix_2.jpg[Suggested fix 2,link=self,window=blank,title="Suggested fix 2"]
 
 [source,java]
 ----
@@ -484,8 +481,8 @@ AuditEvent auditEvent = new AuditEvent(
 );
 ----
 
-image::mta-dls/3_actual_fix_2_1.jpg[Actual fix 2-1,link=self,window=blank,title="Actual fix 2-1"]
-image::mta-dls/3_actual_fix_2_2.jpg[Actual fix 2-2,link=self,window=blank,title="Actual fix 2-2"]
+image::mta-dls/exercise-5/3_actual_fix_2_1.jpg[Actual fix 2-1,link=self,window=blank,title="Actual fix 2-1"]
+image::mta-dls/exercise-5/3_actual_fix_2_2.jpg[Actual fix 2-2,link=self,window=blank,title="Actual fix 2-2"]
 
 Add the import `import java.time.Instant;` to the file.
 
@@ -502,15 +499,15 @@ Replace `logEvent()` with `logEventAsync()`.
 
 *Step 1: Identify synchronous calls*
 
-image::mta-dls/4_analysis.jpg[Analysis for logging methods,link=self,window=blank,title="Analysis for logging methods"]
+image::mta-dls/exercise-5/4_analysis.jpg[Analysis for logging methods,link=self,window=blank,title="Analysis for logging methods"]
 
 Request a fix for the incident *Use non-blocking logEventAsync(event) instead of synchronous logEvent(event)*.
 
 View the solution with the *eye* icon.
 
-image::mta-dls/4_view_solution.jpg[View solution,link=self,window=blank,title="View solution"]
+image::mta-dls/exercise-5/4_view_solution.jpg[View solution,link=self,window=blank,title="View solution"]
 
-image::mta-dls/4_solution.jpg[Solution for logging,link=self,window=blank,title="Solution for logging"]
+image::mta-dls/exercise-5/4_solution.jpg[Solution for logging,link=self,window=blank,title="Solution for logging"]
 
 Save and accept. The Solution Server records the pattern.
 
@@ -520,17 +517,17 @@ Save and accept. The Solution Server records the pattern.
 
 *Step 1: Identify legacy methods*
 
-image::mta-dls/5_analysis.jpg[Analysis for convenience methods,link=self,window=blank,title="Analysis for convenience methods"]
+image::mta-dls/exercise-5/5_analysis.jpg[Analysis for convenience methods,link=self,window=blank,title="Analysis for convenience methods"]
 
 Request a fix for *Replace legacy logSuccess or logFailure methods with a full AuditEvent record*.
 
-image::mta-dls/5_view_solution.jpg[View solution,link=self,window=blank,title="View solution"]
+image::mta-dls/exercise-5/5_view_solution.jpg[View solution,link=self,window=blank,title="View solution"]
 
 *Step 2: LLM vs accepted pattern*
 
 The model may return output similar to a prior fix but strip parameter comments. Comments help the Solution Server learn structure; the following six incidents are updated with explicit field comments.
 
-image::mta-dls/5_suggested_fix_1.jpg[Suggested fix 1,link=self,window=blank,title="Suggested fix 1"]
+image::mta-dls/exercise-5/5_suggested_fix_1.jpg[Suggested fix 1,link=self,window=blank,title="Suggested fix 1"]
 
 Apply the manual fix:
 
@@ -556,9 +553,9 @@ Apply the manual fix:
     auditLogger.logEventAsync(failureEvent);
 ----
 
-image::mta-dls/5_accepted_fix_1.jpg[Accepted fix 1,link=self,window=blank,title="Accepted fix 1"]
+image::mta-dls/exercise-5/5_accepted_fix_1.jpg[Accepted fix 1,link=self,window=blank,title="Accepted fix 1"]
 
-image::mta-dls/5_suggested_fix_2.jpg[Suggested fix 2,link=self,window=blank,title="Suggested fix 2"]
+image::mta-dls/exercise-5/5_suggested_fix_2.jpg[Suggested fix 2,link=self,window=blank,title="Suggested fix 2"]
 
 [source,java]
 ----
@@ -581,9 +578,9 @@ AuditEvent failureEvent = new AuditEvent(
 auditLogger.logEventAsync(failureEvent);
 ----
 
-image::mta-dls/5_accepted_fix_2.jpg[Accepted fix 2,link=self,window=blank,title="Accepted fix 2"]
+image::mta-dls/exercise-5/5_accepted_fix_2.jpg[Accepted fix 2,link=self,window=blank,title="Accepted fix 2"]
 
-image::mta-dls/5_suggested_fix_3.jpg[Suggested fix 3,link=self,window=blank,title="Suggested fix 3"]
+image::mta-dls/exercise-5/5_suggested_fix_3.jpg[Suggested fix 3,link=self,window=blank,title="Suggested fix 3"]
 
 [source,java]
 ----
@@ -606,9 +603,9 @@ image::mta-dls/5_suggested_fix_3.jpg[Suggested fix 3,link=self,window=blank,titl
             auditLogger.logEventAsync(failureEvent);
 ----
 
-image::mta-dls/5_accepted_fix_3.jpg[Accepted fix 3,link=self,window=blank,title="Accepted fix 3"]
+image::mta-dls/exercise-5/5_accepted_fix_3.jpg[Accepted fix 3,link=self,window=blank,title="Accepted fix 3"]
 
-image::mta-dls/5_suggested_fix_4.jpg[Suggested fix 4,link=self,window=blank,title="Suggested fix 4"]
+image::mta-dls/exercise-5/5_suggested_fix_4.jpg[Suggested fix 4,link=self,window=blank,title="Suggested fix 4"]
 
 [source,java]
 ----
@@ -631,9 +628,9 @@ image::mta-dls/5_suggested_fix_4.jpg[Suggested fix 4,link=self,window=blank,titl
             auditLogger.logEventAsync(failureEvent);
 ----
 
-image::mta-dls/5_accepted_fix_4.jpg[Accepted fix 4,link=self,window=blank,title="Accepted fix 4"]
+image::mta-dls/exercise-5/5_accepted_fix_4.jpg[Accepted fix 4,link=self,window=blank,title="Accepted fix 4"]
 
-image::mta-dls/5_suggested_fix_5.jpg[Suggested fix 5,link=self,window=blank,title="Suggested fix 5"]
+image::mta-dls/exercise-5/5_suggested_fix_5.jpg[Suggested fix 5,link=self,window=blank,title="Suggested fix 5"]
 
 [source,java]
 ----
@@ -656,9 +653,9 @@ image::mta-dls/5_suggested_fix_5.jpg[Suggested fix 5,link=self,window=blank,titl
         auditLogger.logEventAsync(successEvent);
 ----
 
-image::mta-dls/5_accepted_fix_5.jpg[Accepted fix 5,link=self,window=blank,title="Accepted fix 5"]
+image::mta-dls/exercise-5/5_accepted_fix_5.jpg[Accepted fix 5,link=self,window=blank,title="Accepted fix 5"]
 
-image::mta-dls/5_suggested_fix_6.jpg[Suggested fix 6,link=self,window=blank,title="Suggested fix 6"]
+image::mta-dls/exercise-5/5_suggested_fix_6.jpg[Suggested fix 6,link=self,window=blank,title="Suggested fix 6"]
 
 [source,java]
 ----
@@ -693,17 +690,17 @@ Move `javax` imports and annotations to the `jakarta` namespace where required.
 
 *Step 1: Identify issues*
 
-image::mta-dls/6_analysis.jpg[Analysis,link=self,window=blank,title="Analysis"]
+image::mta-dls/exercise-5/6_analysis.jpg[Analysis,link=self,window=blank,title="Analysis"]
 
 Request a fix for the incident about *java.annotation (Common Annotations) module removed in OpenJDK 11*.
 
 View with the *eye* icon.
 
-image::mta-dls/6_solution.jpg[View solution,link=self,window=blank,title="View solution"]
+image::mta-dls/exercise-5/6_solution.jpg[View solution,link=self,window=blank,title="View solution"]
 
 Save and accept. The pattern is stored in the Solution Server.
 
-image::mta-dls/7_analysis_complete.jpg[Analysis complete,link=self,window=blank,title="Analysis complete"]
+image::mta-dls/exercise-5/7_analysis_complete.jpg[Analysis complete,link=self,window=blank,title="Analysis complete"]
 
 All listed migration incidents are resolved in this run-through.
 
@@ -738,7 +735,7 @@ Align Maven with Java 21, Spring Boot 3, and the v2 library as needed. Example `
     <description>Simple Spring Boot 3 inventory management with audit logging</description>
 ----
 
-image::mta-dls/8_update_pom.jpg[Update POM,link=self,window=blank,title="Update POM"]
+image::mta-dls/exercise-5/8_update_pom.jpg[Update POM,link=self,window=blank,title="Update POM"]
 
 ==== 4.2 Configure Logstash
 
@@ -761,7 +758,7 @@ podman run -d --name logstash -p 5000:5000 \
 
 *Step 3: Verify Logstash*
 
-image::mta-dls/8_logstash-podman.jpg[Logstash Podman,link=self,window=blank,title="Logstash Podman"]
+image::mta-dls/exercise-5/8_logstash-podman.jpg[Logstash Podman,link=self,window=blank,title="Logstash Podman"]
 
 The container should listen on port 5000 for audit events from the v2 library over TCP.
 
@@ -774,7 +771,7 @@ Use the Java 21 runtime in the terminal, then run:
 mvn clean compile
 ----
 
-image::mta-dls/9_mvn_compile.jpg[Maven compile,link=self,window=blank,title="Maven compile"]
+image::mta-dls/exercise-5/9_mvn_compile.jpg[Maven compile,link=self,window=blank,title="Maven compile"]
 
 A successful build confirms that dependencies and the migrated sources compile on Java 21.
 
@@ -785,7 +782,7 @@ A successful build confirms that dependencies and the migrated sources compile o
 mvn spring-boot:run
 ----
 
-image::mta-dls/9_spring_boot_run.jpg[Spring Boot run,link=self,window=blank,title="Spring Boot run"]
+image::mta-dls/exercise-5/9_spring_boot_run.jpg[Spring Boot run,link=self,window=blank,title="Spring Boot run"]
 
 The app should start on the configured port (for example 8080) with the v2 audit configuration.
 
@@ -798,7 +795,7 @@ The app should start on the configured port (for example 8080) with the v2 audit
 curl -X GET "http://localhost:8080/api/medical-devices?userId=user123"
 ----
 
-image::mta-dls/10_sample_get.jpg[Sample GET request,link=self,window=blank,title="Sample GET request"]
+image::mta-dls/exercise-5/10_sample_get.jpg[Sample GET request,link=self,window=blank,title="Sample GET request"]
 
 *Verify audit logging in Logstash:*
 
@@ -807,7 +804,7 @@ image::mta-dls/10_sample_get.jpg[Sample GET request,link=self,window=blank,title
 podman logs logstash | grep "audit-events.log"
 ----
 
-image::mta-dls/10_sample_log.jpg[Sample log output,link=self,window=blank,title="Sample log output"]
+image::mta-dls/exercise-5/10_sample_log.jpg[Sample log output,link=self,window=blank,title="Sample log output"]
 
 === Conclusion (inventory and next steps)
 

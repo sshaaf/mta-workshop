@@ -1,3 +1,9 @@
+.Goal
+[NOTE]
+====
+Run an initial **MTA static code analysis** over the coolstore repository so you get a structured list of migration **issues**, links into source files, and rule-based context— the baseline you will use in later exercises to drive **Developer Lightspeed** and generated fixes.
+====
+
 Before making changes, use the MTA extension to analyze the legacy code and identify specific modernization opportunities.
 
 In this exercise the MTA extension runs a static code analysis against all the source code in the cloned repository. The static code rules are provided by Red Hat to help focus on rapid identification of issues, and customer rules can also be written and included.In this case we are including the custom ACME specific company policy code rules. This provides an efficient starting point focused on identifying migration issues that were highlighted during the risk analysis in the last module.
@@ -14,7 +20,7 @@ Later on the analysis results will be used to prompt the LLM for generating code
 +
 * Navigate to the **MTA Analysis View** pane
 +
-TIP: If the MTA Analysis View panel is closed accidentally, click the MTA Extension icon and click the book icon in the pane to the right at the top. image:mta-dls/reopen-analysis-pane.jpg[Reopen View Panel,link=self,window=blank,title="Reopen View Panel",150,150]
+TIP: If the MTA Analysis View panel is closed accidentally, click the MTA Extension icon and click the book icon in the pane to the right at the top. image:mta-dls/exercise-2/reopen-analysis-pane.jpg[Reopen View Panel,link=self,window=blank,title="Reopen View Panel",150,150]
 +
 * In the center of the screen make sure the profile selected is the **{user} coolstore**
 * At the top right of the screen, ensure the __Server Status__ is **Running**
@@ -30,7 +36,7 @@ In this scenario the lead developer is migrating a legacy JavaEE monlithic appli
 They want to understand the level of effort needed to migrate a representative application for a "wave" of JavaEE apps to be migrated.
 ====
 +
-image::mta-dls/Initial-analysis.jpg[Run Initial Static Code Analysis,link=self,window=blank,title="Run Initial Static Code Analysis"]
+image::mta-dls/exercise-2/Initial-analysis.jpg[Run Initial Static Code Analysis,link=self,window=blank,title="Run Initial Static Code Analysis"]
 +
 . Review the analysis results:
 +
@@ -48,7 +54,7 @@ The analysis identifies:
 +
 Review the result: **@MessageDriven - EJBs are not supported in Quarkus** +
 +
-image::mta-dls/EJB-issue.jpg[EJB Issue - Not Supported,link=self,window=blank,title="EJB Issue - Not Supported"]
+image::mta-dls/exercise-2/EJB-issue.jpg[EJB Issue - Not Supported,link=self,window=blank,title="EJB Issue - Not Supported"]
 +
 * __If this is NOT the first result in the listing do the following:__
 ** Type __OrderServiceMDB__ in the Search box at the top of the Analysis Results listing

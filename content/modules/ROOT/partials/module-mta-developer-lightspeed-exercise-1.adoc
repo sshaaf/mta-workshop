@@ -5,6 +5,12 @@ In this lab, we will use the **Migration Toolkit for Applications** Visual Studi
 **Developer Lightspeed** is not a separate extension. It is MTA's AI-powered code refactoring feature. The **MTA extension** is what is installed in the IDE; it includes both MTA static code analysis and Developer Lightspeed (generative AI).
 ====
 
+.Goal
+[NOTE]
+====
+Prepare the **OpenShift Dev Spaces** workspace and **MTA extension** for the rest of the lab: open the **Developer Lightspeed-coolstore** project, create a **migration profile** (source and target technologies), and connect **Developer Lightspeed** to the LLM via **GenAI** / **provider-settings.yaml** so you can analyze and modernize ACME’s applications with AI assistance.
+====
+
 We will start by setting up the development environment with AI capabilities to start modernizing ACME's coolstore applications.
 
 Prepare to launch DevSpaces and configure the MTA extension, including Developer Lightspeed (AI) settings.
@@ -22,7 +28,7 @@ NOTE: The initial page is the Keycloak SSO login page
 +
 * Click **Allow selected permissions** button
 +
-image::mta-dls/login-devspaces.jpg[DevSpaces Login,link=self,window=blank,title="Logging In"]
+image::mta-dls/exercise-1/login-devspaces.jpg[DevSpaces Login,link=self,window=blank,title="Logging In"]
 +
 CAUTION: If a message indicates authentication is required again, click the **OpenShift DevSpaces** tab to return to the workspace listing.
 
@@ -31,7 +37,7 @@ CAUTION: If a message indicates authentication is required again, click the **Op
 * After logging in the workspace listing opens and shows the user-{user}-workspace entry
 * Click on the **Open** link on the right side of workspace listing
 +
-image::mta-dls/workspace-listing.jpg[Open Workspace,link=self,window=blank,title="Open Workspace"]
+image::mta-dls/exercise-1/workspace-listing.jpg[Open Workspace,link=self,window=blank,title="Open Workspace"]
 
 . Wait for the workspace to initialize and open:
 +
@@ -42,7 +48,7 @@ The workspace opens in a new browser tab.
 * If prompted to trust the content and providers, confirm trust.
 * If an introductory layout panel appears, choose **Light** theme for best contrast later in the exercise and **Mark Done**.
 +
-image::mta-dls/vscode-getstarted.jpg[VSCode Tab,link=self,window=blank,title="VSCode Tab"]
+image::mta-dls/exercise-1/vscode-getstarted.jpg[VSCode Tab,link=self,window=blank,title="VSCode Tab"]
 
 . Once the workspace loads, verify the **MTA extension** is installed:
 +
@@ -55,17 +61,17 @@ image::mta-dls/vscode-getstarted.jpg[VSCode Tab,link=self,window=blank,title="VS
 * If an **Install Extension Pack** message appears, reload the page
 * Click **Open Analysis Panel**
 +
-image::mta-dls/MTA-extension.jpg[Open Analysis Panel,link=self,window=blank,title="Open Analysis Panel"]
-TIP: If the MTA Analysis View panel is closed accidentally, click the MTA Extension icon and click the book icon in the pane to the right at the top. image:mta-dls/Open-Analysis-View.jpg[Open Analysis Pane Icon,link=self,window=blank,title="Open Analysis Pane Icon",250,250]
+image::mta-dls/exercise-1/MTA-extension.jpg[Open Analysis Panel,link=self,window=blank,title="Open Analysis Panel"]
+TIP: If the MTA Analysis View panel is closed accidentally, click the MTA Extension icon and click the book icon in the pane to the right at the top. image:mta-dls/exercise-1/Open-Analysis-View.jpg[Open Analysis Pane Icon,link=self,window=blank,title="Open Analysis Pane Icon",250,250]
 +
 * Click **Manage Profiles** on the screen
 +
-image::mta-dls/MTA-analysis-view.jpg[Open Manage Profiles,link=self,window=blank,title="Open Manage Profiles"]
+image::mta-dls/exercise-1/MTA-analysis-view.jpg[Open Manage Profiles,link=self,window=blank,title="Open Manage Profiles"]
 +
 * This will open the MTA Manage Profiles panel
 * Click **New Profile**
 +
-image::mta-dls/MTA-profile-filling.jpg[Create New Profile,link=self,window=blank,title="Create a New Profile"]
+image::mta-dls/exercise-1/MTA-profile-filling.jpg[Create New Profile,link=self,window=blank,title="Create a New Profile"]
 +
 * Enter Profile Name:  **{user} coolstore**
 * For Target Technologies:
@@ -75,7 +81,7 @@ image::mta-dls/MTA-profile-filling.jpg[Create New Profile,link=self,window=blank
 ** Click dropdown arrow and type or scroll to **java-ee** and **openjdk8** , clicking each one to set them.
 * Leave __Use Default Rules__ selected
 +
-image::mta-dls/MTA-Profile-settings.jpg[Profile Settings,link=self,window=blank,title="Profile Settings"]
+image::mta-dls/exercise-1/MTA-Profile-settings.jpg[Profile Settings,link=self,window=blank,title="Profile Settings"]
 +
 
 // for now we will skip custom rules and put those into the Solution Server module
@@ -98,11 +104,11 @@ NOTE: A yellow warning about a connection issue may appear; the next step resolv
 * The **Hub Configuration** is configured and used in the next module.
 * Click on the __Configure GenAI Settings__ link in the bottom message box
 +
-image::mta-dls/Analysis-hub.jpg[Configure Generative AI Settings,link=self,window=blank,title="Configure Generative AI Settings"]
+image::mta-dls/exercise-1/Analysis-hub.jpg[Configure Generative AI Settings,link=self,window=blank,title="Configure Generative AI Settings"]
 +
 * The **provider-settings.yaml** file will open on a separate pane
 +
-image::mta-dls/provider-settings.jpg[AI Model Settings,link=self,window=blank,title="AI Model Settings"]
+image::mta-dls/exercise-1/provider-settings.jpg[AI Model Settings,link=self,window=blank,title="AI Model Settings"]
 +
 * Replace/Update from the word **models:** down through the first entry with the following 
 +
